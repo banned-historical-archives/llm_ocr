@@ -7,7 +7,7 @@ RUN apt-get update --yes --quiet && DEBIAN_FRONTEND=noninteractive apt-get insta
     software-properties-common \
     build-essential apt-utils \
     wget curl vim git ca-certificates kmod \
-    nvidia-driver-525 \
+    #nvidia-driver-525 \
  && rm -rf /var/lib/apt/lists/*
 
 # PYTHON 3.10
