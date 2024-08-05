@@ -1,8 +1,19 @@
 version: '3'
 services:
-  ocr:
+  llm_ocr:
     tty: true
     stdin_open: true
     build:
       context: .
       dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    volumes:
+      - ./web_demo.py:/root/
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]  # 指定需要 GPU 支持
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all 
